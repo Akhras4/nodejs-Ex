@@ -1,0 +1,14 @@
+<%- include('./partials/head') %>
+<body>
+<%- include('./partials/nav') %> 
+  <main>
+        <form action="/timeline" method="post">
+            <label for="UserName">UserName</label>
+            <input id="UserName" type="text" required name="UserName">
+            <label for="MS">message</label>
+            <input id="MS" type="text" required name="ms">
+            <button type="submit" name="send">send</button>
+        </form>
+  </main>
+</body>
+</html>

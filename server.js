@@ -24,10 +24,8 @@ app.use(express.urlencoded({extended:true}))
 
 
 app.get("/",(req,res)=>{
-   res.redirect("/indix.html") 
+   res.render("indix") 
 })
-
-
 
 app.post("/timeline",(req,res,next)=>{
   let ti = new Date();
