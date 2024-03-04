@@ -41,10 +41,10 @@ app.post("/timeline",(req,res,next)=>{
     message:ms,
   });
   blog.save()
-      .then((result)=>res.send(result))
-      .catch((err)=>console.log(err))
-  res.render("timeline")
-  next()
+  console.log(blog)
+  Blog.find()
+      .then((result)=>res.render("timeline",{ result}))
+      .catch((err)=>{console.log(err)})
 })
 
 

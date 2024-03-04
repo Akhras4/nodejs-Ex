@@ -11,7 +11,7 @@ const blogschema=new schema({
     message : {type:String,
                require:true
               }
-  
+
 })
 
 const Blog =mongoose.model('Blog',blogschema)
