@@ -2,7 +2,7 @@ const express=require("express")
 const bodyParser = require('body-parser');
 const mongoose=require('mongoose')
 require('dotenv').config();
-const home = require('./Router/home'); 
+
 const timeline = require('./Router/timeline'); 
 
 const app=express()
@@ -20,7 +20,6 @@ app.use(express.static("puplic"))
 app.use(express.static("views"));
 app.use(express.urlencoded({extended:true}))
 
-app.use(home); 
 app.use(timeline); 
 
 
