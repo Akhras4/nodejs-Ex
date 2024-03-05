@@ -1,8 +1,9 @@
 const express=require("express")
 const bodyParser = require('body-parser');
 const mongoose=require('mongoose')
-const Blog=require('./module/blog')
 require('dotenv').config();
+const home = require('./Router/home'); 
+const timeline = require('./Router/timeline'); 
 
 const app=express()
 app.use(bodyParser.json());
@@ -19,32 +20,8 @@ app.use(express.static("puplic"))
 app.use(express.static("views"));
 app.use(express.urlencoded({extended:true}))
 
-
-
-
-
-app.get("/",(req,res)=>{
-   res.render("indix") 
-})
-
-app.post("/timeline",(req,res,next)=>{
-  let ti = new Date();
-  const name=req.body.UserName
-  console.log(name)
-  const ms=req.body.ms
-  console.log(ms)
-  const blog = new Blog ({
-    name:name,
-    createdAt: ti,
-    message:ms,
-  });
-  blog.save()
-  console.log(blog)
-  Blog.find()
-      .then((result)=>res.render("timeline",{ result}))
-      .catch((err)=>{console.log(err)})
-})
-
+app.use(home); 
+app.use(timeline); 
 
 
 
